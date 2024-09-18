@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Cleanup",
+  "version": "1.0",
+  "description": "Clean Youtube view and facilitate to focus on the video.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  },
+  "icons": {
+    "48": "icon48.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+.state-active {
+  color: green;
+}
+
+.state-disabled {
+  color: red;
+}
