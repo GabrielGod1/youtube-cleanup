@@ -10,6 +10,16 @@ function hideElements() {
   if (lowerElementsPhone) {
     lowerElementsPhone.style.display = 'none';
   }
+  
+  const endScreenElements = document.querySelector('.ytp-endscreen-content');
+  if (endScreenElements) {
+    endScreenElements.style.display = 'none';
+  }
+
+  const ceElements = document.querySelectorAll('.ytp-ce-element');
+  ceElements.forEach(element => {
+    element.style.display = 'none';
+  });
 }
 
 // Function to show the comments and recommendations sections
@@ -24,6 +34,16 @@ function showElements() {
   if (lowerElementsPhone) {
     lowerElementsPhone.style.display = '';
   }
+
+  const endScreenElements = document.querySelector('.ytp-endscreen-content');
+  if (endScreenElements) {
+    endScreenElements.style.display = '';
+  }
+
+  const ceElements = document.querySelectorAll('.ytp-ce-element');
+  ceElements.forEach(element => {
+    element.style.display = '';
+  });
 }
 
 // Listen for messages from the popup

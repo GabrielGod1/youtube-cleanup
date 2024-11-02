@@ -17,6 +17,10 @@ Recommendations section cannot be recovered with the toggle in some occasions.<b
 
 ## Release Notes
 
+### 1.0.1
+
+- Added functionality to remove the YouTube end-screen recommendations at the end of each video, providing a distraction-free experience with no unwanted recommendations.
+
 ### 1.0.0
 
 - Initial release of "YouTube Cleanup" chrome extension. Includes functionality to hide comments and recommendations, with a toggle to enable or disable these features.
