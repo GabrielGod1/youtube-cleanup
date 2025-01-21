@@ -1,49 +1,95 @@
 // Function to hide the comments and recommendations sections
 function hideElements() {
-  const lowerElementsSectionComments = document.querySelector('#columns #below');
-  const lowerElementsSectionRecommendations = document.querySelector('#columns #secondary');
-  const lowerElementsPhone = document.querySelector('.watch-below-the-player');
-  if (lowerElementsSectionComments && lowerElementsSectionRecommendations) {
-    lowerElementsSectionComments.style.display = 'none';
-    lowerElementsSectionRecommendations.style.display = 'none';
-  }
-  if (lowerElementsPhone) {
-    lowerElementsPhone.style.display = 'none';
-  }
-  
-  const endScreenElements = document.querySelector('.ytp-endscreen-content');
-  if (endScreenElements) {
-    endScreenElements.style.display = 'none';
+  const currentURL = window.location.href;
+
+  // Main page
+  if (currentURL === 'https://www.youtube.com/' || currentURL === 'https://m.youtube.com/') {
+    const mainSiteSectionRecommendations = document.querySelectorAll("#guide, #page-manager, .page-container");
+    mainSiteSectionRecommendations.forEach(section => {
+      section.style.display = 'none';
+    });
   }
 
-  const ceElements = document.querySelectorAll('.ytp-ce-element');
-  ceElements.forEach(element => {
-    element.style.display = 'none';
-  });
+  // Every video page
+  if (currentURL !== 'https://www.youtube.com/' && currentURL !== 'https://m.youtube.com/') {
+    setTimeout(() => { // This timeout prevents the flashing of main window contents before the DOM is fully updated
+      const mainSiteSectionRecommendations = document.querySelectorAll("#guide, #page-manager, .page-container");
+      mainSiteSectionRecommendations.forEach(section => {
+        section.style.display = '';
+      });
+    }, 850);
+
+    const lowerElementsSectionComments = document.querySelector('#columns #below');
+    const lowerElementsSectionRecommendations = document.querySelector('#columns #secondary');
+    if (lowerElementsSectionComments && lowerElementsSectionRecommendations) {
+      lowerElementsSectionComments.style.display = 'none';
+      lowerElementsSectionRecommendations.style.display = 'none';
+    }
+    const endScreenElements = document.querySelector('.ytp-endscreen-content');
+    if (endScreenElements) {
+      endScreenElements.style.display = 'none';
+    }
+    const ceElements = document.querySelectorAll('.ytp-ce-element'); // in-video overlays
+    ceElements.forEach(element => {
+      element.style.display = 'none';
+    });
+    const rightScreenElements = document.querySelector('#chat');
+    if (rightScreenElements) {
+      rightScreenElements.style.display = 'none';
+    }
+
+    const lowerElementsPhone = document.querySelector('.watch-below-the-player');
+    if (lowerElementsPhone) {
+      lowerElementsPhone.style.display = 'none';
+    }
+  }
 }
 
 // Function to show the comments and recommendations sections
 function showElements() {
-  const lowerElementsSectionComments = document.querySelector('#below');
-  const lowerElementsSectionRecommendations = document.querySelector('#secondary');
-  const lowerElementsPhone = document.querySelector('.watch-below-the-player');
-  if (lowerElementsSectionComments && lowerElementsSectionRecommendations) {
-    lowerElementsSectionComments.style.display = '';
-    lowerElementsSectionRecommendations.style.display = '';
-  }
-  if (lowerElementsPhone) {
-    lowerElementsPhone.style.display = '';
+  const currentURL = window.location.href;
+
+  // Main page
+  if (currentURL === 'https://www.youtube.com/' || currentURL === 'https://m.youtube.com/') {
+    const mainSiteSectionRecommendations = document.querySelectorAll("#guide, #page-manager, .page-container");
+    mainSiteSectionRecommendations.forEach(section => {
+      section.style.display = '';
+    });
   }
 
-  const endScreenElements = document.querySelector('.ytp-endscreen-content');
-  if (endScreenElements) {
-    endScreenElements.style.display = '';
-  }
+  // Every video page
+  if (currentURL !== 'https://www.youtube.com/' && currentURL !== 'https://m.youtube.com/') {
+    setTimeout(() => { // This timeout prevents the flashing of main window contents before the DOM is fully updated
+      const mainSiteSectionRecommendations = document.querySelectorAll("#guide, #page-manager, .page-container");
+      mainSiteSectionRecommendations.forEach(section => {
+        section.style.display = '';
+      });
+    }, 850);
 
-  const ceElements = document.querySelectorAll('.ytp-ce-element');
-  ceElements.forEach(element => {
-    element.style.display = '';
-  });
+    const lowerElementsSectionComments = document.querySelector('#below');
+    const lowerElementsSectionRecommendations = document.querySelector('#secondary');
+    if (lowerElementsSectionComments && lowerElementsSectionRecommendations) {
+      lowerElementsSectionComments.style.display = '';
+      lowerElementsSectionRecommendations.style.display = '';
+    }
+    const endScreenElements = document.querySelector('.ytp-endscreen-content');
+    if (endScreenElements) {
+      endScreenElements.style.display = '';
+    }
+    const ceElements = document.querySelectorAll('.ytp-ce-element');
+    ceElements.forEach(element => {
+      element.style.display = '';
+    });
+    const rightScreenElements = document.querySelector('#chat');
+    if (rightScreenElements) {
+      rightScreenElements.style.display = '';
+    }
+
+    const lowerElementsPhone = document.querySelector('.watch-below-the-player');
+    if (lowerElementsPhone) {
+      lowerElementsPhone.style.display = '';
+    }
+  }
 }
 
 // Listen for messages from the popup
